@@ -1,0 +1,29 @@
+.search {
+  &-input-container {
+    width: 275px;
+    border: 1px solid grey;
+    padding: 4px;
+    height: fit-content;
+    border-radius: 24px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "search-icon input-box";
+  }
+
+  &-input-icon {
+    grid-area: search-icon;
+    height: 18px;
+  }
+
+  &-input-box {
+    grid-area: input-box;
+    border: none;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+}

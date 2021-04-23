@@ -7,10 +7,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.game-time-image {
+  height: 32px;
+  padding: 8px;
 }
 
 .App-header {
@@ -20,6 +19,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
 }
 
 .App-link {
@@ -31,9 +35,9 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
 }
