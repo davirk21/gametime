@@ -13,7 +13,6 @@ export const Search = () => {
 
   useEffect(() => {
     if (data) {
-      console.log("Data", data);
       setEvents(data);
     }
     if (userInput === "") {

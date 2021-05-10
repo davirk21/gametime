@@ -32,7 +32,7 @@ export const searchSlice = createSlice({
     },
 
     [fetchEvents.rejected](state) {
-      state.loading = "RJECTED";
+      state.loading = "REJECTED";
     },
   },
 });
