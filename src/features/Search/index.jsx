@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents } from "./searchSlice";
 import "./index.scss";
 import seachIcon from "./search-icon.png";
+import { DisplayEvents } from "./DisplayEvents";
 
 export const Search = () => {
   const [userInput, setUserInput] = useState("");
@@ -41,61 +42,9 @@ export const Search = () => {
       events?.performers?.length ||
       events?.venues?.length ? (
         <div className="search-result">
-          <div className="search-result-container">
-            {events.events.slice(0, 3).map((e, index) => (
-              <div key={index} className="event">
-                {displayEvent("events", e)}
-              </div>
-            ))}
-            {events.performers.slice(0, 3).map((e, index) => (
-              <div key={index} className="event">
-                {displayEvent("performers", e)}
-              </div>
-            ))}
-
-            {events.venues.slice(0, 3).map((e, index) => (
-              <div key={index} className="event">
-                {displayEvent("venues", e)}
-              </div>
-            ))}
-          </div>
+          <DisplayEvents data={events} />
         </div>
       ) : null}
-    </div>
-  );
-};
-
-const displayEvent = (type, event) => {
-  let image = "";
-  let title = "";
-  let subtitle = "";
-  if (type === "events") {
-    image = event.event.map_url;
-    title = event.event.name;
-    subtitle = event.venue.slug.replace(/(?:_| |\b)(\w)/g, function ($1) {
-      return $1.toUpperCase().replace("_", " ");
-    });
-  }
-
-  if (type === "performers") {
-    image = event.hero_image_url;
-    title = event.medium_name;
-    subtitle = event.name;
-  }
-
-  if (type === "venues") {
-    image = event.image_url;
-    title = event.name;
-    subtitle = event.city;
-  }
-
-  return (
-    <div className="event-container">
-      <div className="event-image">
-        <img src={image} />
-      </div>
-      <div className="event-title">{title}</div>
-      <div className="event-subtitle">{subtitle}</div>
     </div>
   );
 };
